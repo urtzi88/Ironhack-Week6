@@ -1,0 +1,10 @@
+<div class="user_wrapper">
+  <h3>Sell a new Product</h3>
+  <%= form_for [@user, @product] do |f| %>
+    <%= f.text_field :title, :placeholder => "Title" %>
+    <%= f.text_field :description, :placeholder => "Description" %>
+    <%= f.text_field :deadline, :placeholder => "Deadline" %>
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>
+<%= link_to "User Index", "/users" %>

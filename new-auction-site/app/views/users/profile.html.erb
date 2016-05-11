@@ -1,0 +1,19 @@
+<h1><%= @user.name %>'s profile</h1>
+
+<h3>email: <%= @user.email %></h3>
+
+<% if @reviews.length > 0 %>
+  <h3>Reviews I've written:</h3>
+  <ul>
+    <% @reviews.each do |review| %>
+      <li>
+        <%= review.description %>,
+        for product:
+        <%= link_to get_product(review.product_id), product_path(review.product_id) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Edit profile", edit_user_registration_path %>
+<%= link_to "See all products", products_path %>

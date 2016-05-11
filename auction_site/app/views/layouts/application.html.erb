@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Urtzi's AuctionSite</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Urtzi's AuctionSite</h1>
+    </header>
+    <% if user_signed_in? %>
+      <p>Signed in as <%= current_user.name %>. <%= link_to "log out", destroy_user_session_path, method: 'delete' %></p>
+    <% else %>
+      <p>Not signed in yet... <%= link_to "sign in", new_user_session_path %><%= link_to "sign up", new_user_registration_path %></p>
+    <% end %>
+    <%= yield %>
+    <footer>
+      <p>urtzip @Ironhack 2016</p>
+    </footer>
+  </div>
+</body>
+</html>

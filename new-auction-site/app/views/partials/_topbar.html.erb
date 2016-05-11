@@ -1,0 +1,14 @@
+<div id="top_bar">
+  <% if user_signed_in? %>
+    <p>
+      Logged in as <%= current_user.name %>
+      <%= link_to 'My profile', root_path %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to 'Sign up', new_user_registration_path %> |
+      <%= link_to 'Sign in', new_user_session_path %>
+    </p>
+  <% end %>
+</div>

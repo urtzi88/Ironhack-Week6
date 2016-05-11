@@ -1,0 +1,9 @@
+<div class="user_wrapper">
+  <h3>Create a project</h3>
+  <%= form_for @user do |f| %>
+    <%= f.text_field :name, :placeholder => "Name" %>
+    <%= f.text_field :email, :placeholder => "Email" %>
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>
+<%= link_to "User Index", "/users" %>

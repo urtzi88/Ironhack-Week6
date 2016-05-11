@@ -1,0 +1,10 @@
+<h3>All Users</h3>
+<%= link_to "New User", new_user_path %>
+<%= link_to "View all products", products_path %>
+<% @users.each do |user| %>
+  <div class="user_wrapper">
+    <p><strong>Name: </strong><%= user.name %></p>
+    <p><strong>Email: </strong><%= user.email %></p>
+    <%= link_to "View Products", "/#{user.id}/products" %>
+  </div>
+<% end %>

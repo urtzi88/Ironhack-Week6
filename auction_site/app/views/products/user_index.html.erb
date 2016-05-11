@@ -1,0 +1,14 @@
+<h3><%= @user.name %>'s Products</h3>
+<%= link_to "Add new product", "/#{@user.id}/products/new" %>
+<% @products.each do |product| %>
+  <div class="product_wrapper">
+    <h3><%= link_to "#{product.title}", user_product_show_path(user_id: product.user_id,product_id: product.id) %></h3>
+    <% if check_id_bids(product.id) %>
+      <p>Bids on product</p>
+    <% end %>
+    <p><strong>Description: </strong><%= product.description %></p>
+    <p><strong>Deadline: </strong><%= product.deadline %></p>
+  </div>
+<% end %>
+<%= link_to "All Products", products_path %>
+<%= link_to "All Users", users_path %>

@@ -1,0 +1,12 @@
+<% if @reviews.length > 0 %>
+  <ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= review.description %>
+      <% if user_signed_in? && review.user_id == current_user.id %>
+        <%= link_to "Delete", product_review_path(id: review.id, product_id: @product.id), method: "DELETE", data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,13 @@
+<h3>All Products</h3>
+<%= link_to "View all users", users_path %>
+<% @products.each do |product| %>
+  <div class="product_wrapper">
+    <h3><%= link_to "#{product.title}", user_product_show_path(user_id: product.user_id,product_id: product.id) %></h3>
+    <% if check_id_bids(product.id) %>
+      <p>Bids on product</p>
+    <% end %>
+    <p><strong>User: </strong><%= link_to print_user_name(product.user_id) , "/#{product.user_id}/products" %></p>
+    <p><strong>Description: </strong><%= product.description %></p>
+    <p><strong>Deadline: </strong><%= product.deadline %></p>
+  </div>
+<% end %>

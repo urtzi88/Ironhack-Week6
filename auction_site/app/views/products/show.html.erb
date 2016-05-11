@@ -1,0 +1,24 @@
+<div class="product_wrapper">
+  <h3><%= @product.title %></h3>
+  <p><strong>Description: </strong><%= @product.description %></p>
+  <p><strong>Sold by: </strong><%= @user.name %></p>
+  <% if @bids.count != 0 %>
+    <div class="bids_wrapper">
+      <h3>Current Bids</h3>
+      <% @bids.each do |bid| %>
+        <% if bid.amount %>
+          <p><%= bid.amount %>$ bid by <%= print_user_name(bid.user_id) %></p>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <h3>Bid!</h3>
+  <%= form_for [@user, @product, @bid] do |f| %>
+    <%= f.text_field :amount, :placeholder => "Amount" %>
+    <%= f.text_field :user_id, :placeholder => "User" %>
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>
+<%= link_to "#{@user.name}'s products", user_products_path %>
+<%= link_to "All products", products_path %>
+<%= link_to "All users", users_path %>

@@ -1,0 +1,20 @@
+<h1>Sandwich: <%= @sandwich.name %></h1>
+
+<h3>Calories: <span class="js-sandwich-calories"><%= @sandwich.total_calories %></span></h3>
+
+<h3>Bread Type: <%= @sandwich.bread_type %></h3>
+
+<button class="js-show-ingredients">Show ingredients</button>
+
+<ul class="js-list-ingredients hidden">
+  <% @sandwich.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %>, Caloroes: <%= ingredient.calories %></li>
+  <% end %>
+</ul>
+
+<h3>Available ingredients: </h3>
+<ul class="js-all-ingredients" data-id="<%= @sandwich.id %>">
+<% @ingredients.each do |ingredient| %>
+  <li><button data-id="<%= ingredient.id %>"><%= ingredient.name %></button></li>
+<% end %>
+</ul>
